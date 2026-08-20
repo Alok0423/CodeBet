@@ -4,14 +4,19 @@
 
 **CodeBet** is a full-stack MERN application that brings the excitement of competitive programming into a **real-time 1v1 battle format**.
 
-Challenge another programmer, solve coding problems under pressure, and compete head-to-head in a live coding environment.
+Inspired by platforms like **Codeforces, CodeChef, and chess.com**, CodeBet allows programmers to challenge each other, solve coding problems under time pressure, and compete in a live multiplayer environment.
 
-Inspired by platforms such as **Codeforces, CodeChef, and chess.com**, CodeBet combines competitive programming with real-time multiplayer interaction.
+---
 
 ## 🌐 Live Demo
 
-🚀 **Try CodeBet:**
-https://codebet.vercel.app/
+### 🚀 Try CodeBet
+
+**https://code-bet-green.vercel.app/**
+
+### 🔧 Backend API
+
+**https://codebet-7ykd.onrender.com**
 
 ---
 
@@ -23,27 +28,31 @@ Challenge another programmer and compete head-to-head to solve coding problems.
 
 ### 💻 Online Coding Environment
 
-Write and submit solutions directly from the browser in a competitive programming environment.
+Write, test, and submit your code directly from the browser.
 
-### ⚡ Real-Time Interaction
+### ⚡ Real-Time Multiplayer
 
-Real-time communication enables players to experience live challenges and competitive matches.
+Socket.IO enables real-time communication and synchronization between players during challenges.
 
 ### 🔐 Authentication
 
-User authentication and protected application routes provide a personalized experience.
+Secure user registration, login, authentication, and protected routes using JWT.
 
 ### 👤 User Profiles
 
-Create a programming profile and participate in competitive coding challenges.
+Users can create their profiles and participate in coding challenges.
 
-### 🏆 Competitive Experience
+### 🏆 Competitive Programming
 
-Solve problems under time pressure and compete to finish faster and more efficiently.
+Solve problems under time pressure and compete against another programmer.
 
-### 📱 Modern Responsive UI
+### 📊 Challenge Management
 
-A modern web interface designed for a smooth experience across devices.
+Send, accept, reject, withdraw, and manage coding challenges.
+
+### 📱 Responsive Interface
+
+Modern React-based interface designed for a smooth experience across different devices.
 
 ---
 
@@ -76,36 +85,40 @@ A modern web interface designed for a smooth experience across devices.
 * CORS
 * dotenv
 
+### Deployment
+
+* **Frontend:** Vercel
+* **Backend:** Render
+* **Database:** MongoDB Atlas
+
 ---
 
 ## 🏗️ Architecture
 
 ```text
-                         ┌──────────────────────┐
-                         │        User          │
-                         │      Browser         │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │   React + Vite       │
-                         │      Frontend        │
-                         └──────────┬───────────┘
-                                    │
-                         REST API + Socket.IO
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │   Node.js + Express  │
-                         │       Backend        │
-                         └──────────┬───────────┘
-                                    │
-                       ┌────────────┴────────────┐
-                       ▼                         ▼
-              ┌────────────────┐       ┌────────────────┐
-              │    MongoDB     │       │   Cloudinary   │
-              │    Database    │       │     Storage    │
-              └────────────────┘       └────────────────┘
+                         🌍 USERS
+                            │
+                            ▼
+              ┌──────────────────────────┐
+              │      Vercel Frontend     │
+              │  React + Vite + Tailwind │
+              └────────────┬─────────────┘
+                           │
+                    REST API + Socket.IO
+                           │
+                           ▼
+              ┌──────────────────────────┐
+              │     Render Backend       │
+              │   Node.js + Express      │
+              │        + Socket.IO       │
+              └────────────┬─────────────┘
+                           │
+                    ┌──────┴──────┐
+                    ▼             ▼
+             ┌────────────┐  ┌────────────┐
+             │  MongoDB   │  │ Cloudinary │
+             │   Atlas    │  │   Storage  │
+             └────────────┘  └────────────┘
 ```
 
 ---
@@ -137,11 +150,11 @@ CodeBet/
 
 ---
 
-## 🚀 Getting Started Locally
+## 🚀 Run Locally
 
 ### Prerequisites
 
-Make sure you have:
+Make sure you have installed:
 
 * Node.js
 * npm
@@ -155,23 +168,14 @@ git clone https://github.com/Alok0423/CodeBet.git
 cd CodeBet
 ```
 
-### Install Backend Dependencies
+### Backend Setup
 
 ```bash
 cd backend
 npm install
 ```
 
-### Install Frontend Dependencies
-
-```bash
-cd ../frontend
-npm install
-```
-
-### Environment Variables
-
-Create a `.env` file inside the `backend` directory.
+Create a `.env` file inside the `backend` folder:
 
 ```env
 MONGODB_URI=your_mongodb_connection_string
@@ -179,25 +183,39 @@ JWT_SECRET=your_jwt_secret
 PORT=5000
 ```
 
-Add any additional environment variables required by your local configuration.
-
-### Run Backend
+Start the backend:
 
 ```bash
-cd backend
 npm run dev
 ```
 
-### Run Frontend
+### Frontend Setup
 
-Open another terminal:
+Open a new terminal:
 
 ```bash
 cd frontend
+npm install
 npm run dev
 ```
 
-Then open the local URL provided by Vite.
+The frontend will run on the local Vite development server.
+
+---
+
+## 🔐 Environment Variables
+
+Do not upload your `.env` file to GitHub.
+
+Example:
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+PORT=5000
+```
+
+Keep all credentials, API keys, database passwords, and secrets private.
 
 ---
 
@@ -208,17 +226,19 @@ Create Account
       ↓
 Login
       ↓
-Challenge Another Player
+Find / Challenge Player
       ↓
-Enter 1v1 Coding Match
+Send Challenge
       ↓
-Solve the Problem
+Opponent Accepts
+      ↓
+Start 1v1 Contest
+      ↓
+Solve Coding Problem
       ↓
 Submit Solution
       ↓
-Compete in Real Time
-      ↓
-Winner!
+Determine Winner
 ```
 
 ---
@@ -232,40 +252,47 @@ Winner!
 * 👥 Friends and online status
 * 👀 Spectator mode
 * 🏟️ Tournament mode
-* 🌎 Multi-language support
+* 🌎 Support for multiple programming languages
 * 🛡️ Anti-cheating mechanisms
 * 📈 Coding performance analytics
+* 🔔 Real-time notifications
 
 ---
 
-## 💡 Vision
+## 🎯 Vision
 
-The goal of CodeBet is to make competitive programming more engaging by combining:
+CodeBet aims to make competitive programming more engaging by combining:
 
 **Coding + Competition + Real-Time Multiplayer**
 
-Instead of solving problems alone, challenge another programmer and prove who can solve them better and faster.
+Instead of solving problems alone, challenge another programmer and prove who can solve the problem faster.
 
 ---
 
 ## 👨‍💻 Author
 
-**Alok Sharma**
+### Alok Sharma
 
 GitHub:
 https://github.com/Alok0423
 
+Project Repository:
+https://github.com/Alok0423/CodeBet
+
 ---
 
-## 🌐 Live Project
+## 🌐 Links
 
-**CodeBet:**
-https://codebet.vercel.app/
+| Platform             | Link                                |
+| -------------------- | ----------------------------------- |
+| 🚀 Live Application  | https://code-bet-green.vercel.app/  |
+| 🔧 Backend           | https://codebet-7ykd.onrender.com   |
+| 💻 GitHub Repository | https://github.com/Alok0423/CodeBet |
 
 ---
 
 ## ⭐ Support
 
-If you like the project, consider giving the repository a ⭐ on GitHub.
+If you like CodeBet, consider giving the repository a ⭐ on GitHub.
 
 **Code. Challenge. Compete. Win. ⚔️**
