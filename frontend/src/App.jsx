@@ -23,7 +23,7 @@ const App = () => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const newSocket = io("https://codebet-backend.onrender.com");
+    const newSocket = io("https://codebet-7ykd.onrender.com");
     setSocket(newSocket);
     return () => newSocket.disconnect();
   }, []);
