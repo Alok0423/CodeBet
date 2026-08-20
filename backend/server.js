@@ -18,7 +18,7 @@ const server = http.createServer(app);
 
 // ✅ CORS Setup (allow frontend domain)
 app.use(cors({
-  origin: 'code-bet-green.vercel.app', // <-- allow only your frontend
+  origin: 'https://code-bet-green.vercel.app', // <-- allow only your frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
