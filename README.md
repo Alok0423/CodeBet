@@ -2,55 +2,48 @@
 
 ### Real-Time 1v1 Competitive Programming Platform
 
-CodeBet is a full-stack MERN application that brings the thrill of competitive programming into a **1v1 challenge format**.
+**CodeBet** is a full-stack MERN application that brings the excitement of competitive programming into a **real-time 1v1 battle format**.
 
-Inspired by platforms like **Codeforces, CodeChef, and chess.com**, CodeBet lets programmers challenge each other, solve problems in real time, and experience the pressure of live contests — together.
+Challenge another programmer, solve coding problems under pressure, and compete head-to-head in a live coding environment.
+
+Inspired by platforms such as **Codeforces, CodeChef, and chess.com**, CodeBet combines competitive programming with real-time multiplayer interaction.
+
+## 🌐 Live Demo
+
+🚀 **Try CodeBet:**
+https://codebet.vercel.app/
 
 ---
 
-## 🚀 Features
+## ✨ Features
 
-* ⚔️ **1v1 Coding Challenges**
+### ⚔️ 1v1 Coding Battles
 
-  * Challenge another programmer to a coding battle.
-  * Compete head-to-head under time pressure.
+Challenge another programmer and compete head-to-head to solve coding problems.
 
-* 💻 **Online Code Editor**
+### 💻 Online Coding Environment
 
-  * Write and submit code directly from the browser.
-  * Practice competitive programming in a real-time environment.
+Write and submit solutions directly from the browser in a competitive programming environment.
 
-* ⚡ **Real-Time Challenges**
+### ⚡ Real-Time Interaction
 
-  * Real-time communication powered by Socket.IO.
-  * Challenge and contest events are synchronized between players.
+Real-time communication enables players to experience live challenges and competitive matches.
 
-* 🏆 **Competitive Programming**
+### 🔐 Authentication
 
-  * Race against another programmer to solve coding problems.
-  * Experience the pressure of a live coding contest.
+User authentication and protected application routes provide a personalized experience.
 
-* 🔐 **Authentication**
+### 👤 User Profiles
 
-  * Secure user authentication.
-  * JWT-based authentication and protected routes.
+Create a programming profile and participate in competitive coding challenges.
 
-* 👤 **User Profiles**
+### 🏆 Competitive Experience
 
-  * Create and manage your coding profile.
-  * Participate in coding challenges.
+Solve problems under time pressure and compete to finish faster and more efficiently.
 
-* 🗄️ **MongoDB Database**
+### 📱 Modern Responsive UI
 
-  * User and application data stored using MongoDB.
-
-* ☁️ **Cloudinary Integration**
-
-  * Cloud-based media and image management.
-
-* 📱 **Responsive UI**
-
-  * Modern interface designed for different screen sizes.
+A modern web interface designed for a smooth experience across devices.
 
 ---
 
@@ -85,6 +78,38 @@ Inspired by platforms like **Codeforces, CodeChef, and chess.com**, CodeBet lets
 
 ---
 
+## 🏗️ Architecture
+
+```text
+                         ┌──────────────────────┐
+                         │        User          │
+                         │      Browser         │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                         ┌──────────────────────┐
+                         │   React + Vite       │
+                         │      Frontend        │
+                         └──────────┬───────────┘
+                                    │
+                         REST API + Socket.IO
+                                    │
+                                    ▼
+                         ┌──────────────────────┐
+                         │   Node.js + Express  │
+                         │       Backend        │
+                         └──────────┬───────────┘
+                                    │
+                       ┌────────────┴────────────┐
+                       ▼                         ▼
+              ┌────────────────┐       ┌────────────────┐
+              │    MongoDB     │       │   Cloudinary   │
+              │    Database    │       │     Storage    │
+              └────────────────┘       └────────────────┘
+```
+
+---
+
 ## 📁 Project Structure
 
 ```text
@@ -96,8 +121,8 @@ CodeBet/
 │   ├── models/
 │   ├── routes/
 │   ├── utils/
-│   ├── package.json
-│   └── server.js
+│   ├── server.js
+│   └── socket.js
 │
 ├── frontend/
 │   ├── public/
@@ -112,153 +137,88 @@ CodeBet/
 
 ---
 
-## ⚙️ Getting Started
+## 🚀 Getting Started Locally
 
 ### Prerequisites
 
-Make sure you have the following installed:
+Make sure you have:
 
 * Node.js
 * npm
 * Git
-* MongoDB or MongoDB Atlas
+* MongoDB / MongoDB Atlas
 
----
-
-## 📥 Installation
-
-### 1. Clone the repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/Alok0423/CodeBet.git
 cd CodeBet
 ```
 
-### 2. Install backend dependencies
+### Install Backend Dependencies
 
 ```bash
 cd backend
 npm install
 ```
 
-### 3. Install frontend dependencies
+### Install Frontend Dependencies
+
+```bash
+cd ../frontend
+npm install
+```
+
+### Environment Variables
+
+Create a `.env` file inside the `backend` directory.
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+PORT=5000
+```
+
+Add any additional environment variables required by your local configuration.
+
+### Run Backend
+
+```bash
+cd backend
+npm run dev
+```
+
+### Run Frontend
 
 Open another terminal:
 
 ```bash
 cd frontend
-npm install
-```
-
----
-
-## 🔐 Environment Variables
-
-Create a `.env` file inside the `backend` directory.
-
-Example:
-
-```env
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
-PORT=5000
-```
-
-> ⚠️ Never commit your `.env` file to GitHub. Keep API keys, database credentials, and secrets private.
-
----
-
-## ▶️ Running the Application
-
-### Start the Backend
-
-From the `backend` directory:
-
-```bash
 npm run dev
 ```
 
-The backend will run on:
-
-```text
-http://localhost:5000
-```
-
-### Start the Frontend
-
-From the `frontend` directory:
-
-```bash
-npm run dev
-```
-
-The frontend will usually run on:
-
-```text
-http://localhost:5173
-```
+Then open the local URL provided by Vite.
 
 ---
 
-## 🏗️ Application Architecture
+## 🎯 How CodeBet Works
 
 ```text
-                    ┌─────────────────┐
-                    │      User       │
-                    │     Browser     │
-                    └────────┬────────┘
-                             │
-                             ▼
-                    ┌─────────────────┐
-                    │ React + Vite    │
-                    │    Frontend     │
-                    └────────┬────────┘
-                             │
-                    REST API │ Socket.IO
-                             │
-                             ▼
-                    ┌─────────────────┐
-                    │ Node + Express  │
-                    │     Backend     │
-                    └───────┬─────────┘
-                            │
-                   ┌────────┴────────┐
-                   ▼                 ▼
-            ┌─────────────┐   ┌─────────────┐
-            │   MongoDB   │   │  Cloudinary │
-            │   Database  │   │    Media    │
-            └─────────────┘   └─────────────┘
-```
-
----
-
-## 🌐 Deployment
-
-CodeBet can be deployed using:
-
-* **Frontend:** Vercel
-* **Backend:** Render
-* **Database:** MongoDB Atlas
-
-Production architecture:
-
-```text
-User
- │
- ▼
-Vercel
-Frontend
- │
- │ API + Socket.IO
- ▼
-Render
-Backend
- │
- ▼
-MongoDB Atlas
+Create Account
+      ↓
+Login
+      ↓
+Challenge Another Player
+      ↓
+Enter 1v1 Coding Match
+      ↓
+Solve the Problem
+      ↓
+Submit Solution
+      ↓
+Compete in Real Time
+      ↓
+Winner!
 ```
 
 ---
@@ -266,25 +226,25 @@ MongoDB Atlas
 ## 🔮 Future Improvements
 
 * 🏆 Global leaderboard
-* 📊 ELO/rating system
+* 📊 ELO / rating system
 * 📜 Match history
-* 🌎 More programming languages
 * 🤝 Skill-based matchmaking
 * 👥 Friends and online status
 * 👀 Spectator mode
 * 🏟️ Tournament mode
+* 🌎 Multi-language support
 * 🛡️ Anti-cheating mechanisms
-* 📈 Performance analytics
+* 📈 Coding performance analytics
 
 ---
 
-## 🎯 Vision
+## 💡 Vision
 
-CodeBet aims to make competitive programming more engaging by combining:
+The goal of CodeBet is to make competitive programming more engaging by combining:
 
 **Coding + Competition + Real-Time Multiplayer**
 
-Instead of solving problems alone, challenge another programmer and prove who can solve the problem faster.
+Instead of solving problems alone, challenge another programmer and prove who can solve them better and faster.
 
 ---
 
@@ -297,8 +257,15 @@ https://github.com/Alok0423
 
 ---
 
+## 🌐 Live Project
+
+**CodeBet:**
+https://codebet.vercel.app/
+
+---
+
 ## ⭐ Support
 
-If you find CodeBet interesting, consider giving the repository a ⭐ on GitHub.
+If you like the project, consider giving the repository a ⭐ on GitHub.
 
-### Code. Challenge. Compete. Win. ⚔️
+**Code. Challenge. Compete. Win. ⚔️**

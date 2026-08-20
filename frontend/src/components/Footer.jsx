@@ -16,7 +16,7 @@ export default function Footer() {
                 {/* Right: Credits */}
                 <div className="text-center md:text-right text-md text-gray-400">
                     <p>
-                        Made with ❤️‍🔥 and ☕ by <span className="font-semibold text-secondary">Nihal Rawat</span>
+                        Made with ❤️‍🔥 and ☕ by <span className="font-semibold text-secondary">Alok Sharma</span>
                     </p>
                     <p className="mt-1">&copy; {new Date().getFullYear()} CodeBet. All rights reserved.</p>
                 </div>
